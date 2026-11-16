@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ABHI ❤️ SWEETU</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #ffb6d0, #ff5c9a);
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+}
+
+.card {
+  background: white;
+  padding: 35px 20px;
+  width: 90%;
+  max-width: 420px;
+  border-radius: 25px;
+  text-align: center;
+  box-shadow: 0 10px 35px #8b174b55;
+}
+
+.heart {
+  font-size: 65px;
+  animation: beat 1s infinite;
+}
+
+@keyframes beat {
+  50% { transform: scale(1.2); }
+}
+
+h1 {
+  color: #e52c77;
+  font-size: 30px;
+}
+
+h2 {
+  color: #a12b59;
+}
+
+p {
+  color: #777;
+  line-height: 1.6;
+}
+
+button {
+  border: none;
+  padding: 14px 28px;
+  border-radius: 30px;
+  font-size: 17px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#yes {
+  background: #ed3982;
+  color: white;
+}
+
+#no {
+  background: #eee;
+  color: #444;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+#message {
+  color: #e52c77;
+  font-weight: bold;
+  margin-top: 25px;
+  font-size: 19px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <div class="heart">💗</div>
+
+  <h2>Hey SWEETU! 🥰</h2>
+
+  <h1>Will You Be Mine? ❤️</h1>
+
+  <p>
+    From ABHI ❤️<br>
+    You are a special friend, and I wanted
+    to ask you something special...
+  </p>
+
+  <div class="buttons">
+    <button id="yes">YES 💖</button>
+    <button id="no">NO 🙈</button>
+  </div>
+
+  <div id="message"></div>
+</div>
+
+<script>
+const no = document.getElementById("no");
+const yes = document.getElementById("yes");
+const message = document.getElementById("message");
+
+function moveNo() {
+  const maxX = window.innerWidth - no.offsetWidth;
+  const maxY = window.innerHeight - no.offsetHeight;
+
+  no.style.position = "fixed";
+  no.style.left = Math.random() * maxX + "px";
+  no.style.top = Math.random() * maxY + "px";
+}
+
+no.addEventListener("pointerenter", moveNo);
+no.addEventListener("click", moveNo);
+
+no.addEventListener("touchstart", function(e) {
+  e.preventDefault();
+  moveNo();
+}, {passive: false});
+
+yes.addEventListener("click", function() {
+  message.innerHTML =
+    "YAY SWEETU ! 💕 ABHI is so happy! 🥹❤️";
+
+  yes.innerHTML = "YESSS! 💗";
+  no.style.display = "none";
+});
+</script>	
+
+</body>
+</html>
